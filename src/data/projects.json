@@ -1,0 +1,68 @@
+[
+  {
+    "id": "shtika-bein-hakirot",
+    "title": "שתיקה בין הקירות",
+    "category": "סרט עלילתי קצר",
+    "year": 2024,
+    "role": "במאית • תסריטאית",
+    "duration": "24 דק׳",
+    "description": "דרמה קאמרית על משפחה אחת ולילה אחד שמשנה הכל. סרט על מה שנאמר בין השורות.",
+    "accent": "#7c4a3a",
+    "featured": true
+  },
+  {
+    "id": "or-mitztaber",
+    "title": "אור מצטבר",
+    "category": "סרט תיעודי",
+    "year": 2023,
+    "role": "במאית • מפיקה",
+    "duration": "52 דק׳",
+    "description": "מסע תיעודי אחר שלוש נשים שבונות מחדש את חייהן בפריפריה, מתוך שגרה שהופכת לתקווה.",
+    "accent": "#3f5a6b",
+    "featured": true
+  },
+  {
+    "id": "kav-hafrada",
+    "title": "קו הפרדה",
+    "category": "סדרה קצרה",
+    "year": 2023,
+    "role": "יוצרת • תסריטאית",
+    "duration": "6 פרקים",
+    "description": "סדרת דרמה בת שישה פרקים על שכנים משני צדי אותו קיר, שגורלם נכרך זה בזה.",
+    "accent": "#5a4a6b",
+    "featured": false
+  },
+  {
+    "id": "yamim-shel-melach",
+    "title": "ימים של מלח",
+    "category": "קליפ",
+    "year": 2022,
+    "role": "במאית",
+    "duration": "4 דק׳",
+    "description": "וידאו-ארט מוזיקלי שצולם לאורך קו החוף, בין גאות לשפל, כמכתב אהבה לים.",
+    "accent": "#2f6b63",
+    "featured": false
+  },
+  {
+    "id": "cheder-323",
+    "title": "חדר 323",
+    "category": "סרט עלילתי קצר",
+    "year": 2022,
+    "role": "במאית • תסריטאית",
+    "duration": "18 דק׳",
+    "description": "מותחן פסיכולוגי המתרחש כולו בחדר מלון אחד, בין שני זרים שנפגשים בטעות.",
+    "accent": "#6b3f4a",
+    "featured": false
+  },
+  {
+    "id": "bein-hatzlilim",
+    "title": "בין הצלילים",
+    "category": "פרסומת מותג",
+    "year": 2021,
+    "role": "במאית",
+    "duration": "60 שנ׳",
+    "description": "קמפיין ויזואלי למותג תרבות, שחוגג את הרגע שבו קהל וסאונד הופכים לדבר אחד.",
+    "accent": "#6b5a2f",
+    "featured": false
+  }
+]
