@@ -1,20 +1,42 @@
 import type { Project } from "@/types/project";
+import VideoEmbed from "@/components/VideoEmbed";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const { title, category, year, role, duration, description, accent } = project;
+  const {
+    title,
+    category,
+    year,
+    role,
+    duration,
+    description,
+    accent,
+    vimeoId,
+    vimeoHash,
+    poster,
+    status,
+  } = project;
+
+  const comingSoon = status === "coming-soon" || !vimeoId;
 
   return (
     <article className="group flex h-full flex-col">
-      <a
-        href={`#works`}
-        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
-        aria-label={`${title} — ${category}, ${year}`}
-      >
-        {/* Thumbnail placeholder */}
+      {vimeoId ? (
+        // Real clip: privacy-aware Vimeo facade
+        <VideoEmbed
+          vimeoId={vimeoId}
+          vimeoHash={vimeoHash}
+          poster={poster}
+          accent={accent}
+          title={title}
+          label={duration}
+          rounded="xl"
+        />
+      ) : (
+        // Placeholder thumbnail until a clip is uploaded
         <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-line bg-ink">
           <div
             aria-hidden
@@ -38,14 +60,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {year}
           </span>
 
-          {/* hover play cue */}
-          <span className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-14 w-14 scale-90 items-center justify-center rounded-full border border-paper/40 bg-paper/10 text-paper opacity-0 backdrop-blur-sm transition-all duration-300 ease-out-expo group-hover:scale-100 group-hover:opacity-100">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="ms-0.5 h-5 w-5" aria-hidden>
-                <path d="M8 5v14l11-7z" />
-              </svg>
+          {/* coming-soon badge */}
+          {comingSoon && (
+            <span className="absolute bottom-3 end-3 rounded-full border border-paper/30 bg-paper/10 px-3 py-1 text-[11px] font-semibold tracking-widest text-paper/85 backdrop-blur-sm">
+              בקרוב
             </span>
-          </span>
+          )}
 
           {/* bottom caption */}
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4">
@@ -54,20 +74,26 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </span>
           </div>
         </div>
-      </a>
+      )}
 
       {/* Meta */}
       <div className="mt-4 flex flex-1 flex-col">
         <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
           <span>{category}</span>
+          <span aria-hidden className="text-line">·</span>
+          <span className="text-muted">{year}</span>
         </div>
         <h3 className="mt-2 font-display text-xl font-bold text-ink transition-colors duration-300 group-hover:text-accent">
           {title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
-        <p className="mt-3 text-xs font-medium tracking-wide text-muted/80">
-          {role}
-        </p>
+        {description && (
+          <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+        )}
+        {role && (
+          <p className="mt-3 text-xs font-medium tracking-wide text-muted/80">
+            {role}
+          </p>
+        )}
       </div>
     </article>
   );

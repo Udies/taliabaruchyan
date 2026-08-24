@@ -1,3 +1,6 @@
+import VideoEmbed from "@/components/VideoEmbed";
+import { showreel } from "@/config/site";
+
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
@@ -41,49 +44,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Featured reel placeholder */}
+        {/* Featured showreel (Vimeo-ready; shows "coming soon" until an id is set) */}
         <div id="reel" className="mt-14 scroll-mt-28 sm:mt-20">
-          <div className="group relative aspect-video w-full overflow-hidden rounded-2xl border border-line bg-ink">
-            {/* cinematic placeholder gradient */}
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-90 transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"
-              style={{
-                background:
-                  "linear-gradient(135deg, #1c1a16 0%, #2c2a24 45%, #3a2c26 100%)",
-              }}
-            />
-            {/* grain / vignette */}
-            <div
-              aria-hidden
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(70% 70% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%)",
-              }}
-            />
-
-            {/* play control */}
-            <button
-              type="button"
-              className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-paper"
-              aria-label="הפעלת סרט הרזומה"
-            >
-              <span className="flex h-16 w-16 items-center justify-center rounded-full border border-paper/40 bg-paper/10 backdrop-blur-sm transition-all duration-300 ease-out-expo group-hover:scale-110 group-hover:bg-paper/20 sm:h-20 sm:w-20">
-                <PlayGlyph className="ms-0.5 h-6 w-6 sm:h-7 sm:w-7" />
-              </span>
-              <span className="text-xs font-medium uppercase tracking-widest text-paper/80">
-                Showreel · 2024
-              </span>
-            </button>
-
-            {/* corner caption */}
-            <div className="absolute bottom-4 start-5 text-paper/70">
-              <p className="text-[11px] font-medium tracking-widest">
-                סרט רזומה — אוסף קטעים נבחרים
-              </p>
-            </div>
-          </div>
+          <VideoEmbed
+            vimeoId={showreel.vimeoId || undefined}
+            vimeoHash={showreel.vimeoHash || undefined}
+            poster={showreel.poster || undefined}
+            title="סרט הרזומה של טליה ברוכיאן"
+            label={showreel.label}
+            caption={showreel.caption}
+          />
         </div>
       </div>
     </section>
