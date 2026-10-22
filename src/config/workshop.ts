@@ -83,8 +83,8 @@ export const workshop = {
    * When set, the form opens a pre-filled WhatsApp message to Talia.
    */
   contact: {
-    whatsapp: "", // TODO: Talia's WhatsApp number, digits only, e.g. 972xxxxxxxxx
-    email: "", // TODO: Talia's email for leads (optional fallback)
+    whatsapp: "972506568934", // 050-6568934 in international format
+    email: "", // optional fallback
     instagram: "", // optional
   },
 } as const;

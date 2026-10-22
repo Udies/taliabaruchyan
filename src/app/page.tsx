@@ -123,20 +123,12 @@ export default function Home() {
             {/* Portrait placeholder */}
             <div className="lg:col-span-5">
               <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border border-line bg-surface lg:mx-0">
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(160deg, #efe7da 0%, #e3d4bd 55%, #d8c2a4 100%)",
-                  }}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/talia.jpg"
+                  alt="טליה ברוכיאן — מנחת וידאותרפיה"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink/40">
-                  <span className="font-display text-5xl font-extrabold tracking-tight">
-                    ט.ב
-                  </span>
-                  <span className="text-xs font-medium tracking-widest">תמונה של טליה</span>
-                </div>
               </div>
             </div>
 
@@ -194,6 +186,19 @@ export default function Home() {
             <div className="mt-8">
               <LeadForm />
             </div>
+            {w.contact.whatsapp && (
+              <p className="mt-6 text-center text-sm text-muted">
+                מעדיפים וואטסאפ?{" "}
+                <a
+                  href={`https://wa.me/${w.contact.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline font-semibold text-ink"
+                >
+                  דברו איתי ישירות
+                </a>
+              </p>
+            )}
           </div>
         </Section>
       </main>
