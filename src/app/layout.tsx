@@ -23,27 +23,28 @@ const siteUrl = "https://taliabaruchyan.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "טליה ברוכיאן — במאית, תסריטאית ומפיקה",
+    default: "וידאותרפיה · טליה ברוכיאן — סדנה קבוצתית",
     template: "%s · טליה ברוכיאן",
   },
   description:
-    "פורטפוליו של טליה ברוכיאן — במאית, תסריטאית ומפיקה. סרטים עלילתיים ותיעודיים, סדרות וקליפים.",
+    "סדנת וידאותרפיה בהנחיית טליה ברוכיאן — תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי וצמיחה. שישה מפגשים בתל אביב, החל מדצמבר.",
   keywords: [
+    "וידאותרפיה",
+    "סדנת וידאותרפיה",
     "טליה ברוכיאן",
     "Talia Baruchyan",
-    "במאית",
-    "תסריטאית",
-    "מפיקה",
+    "התפתחות אישית",
     "קולנוע",
-    "סרטים",
+    "צילום",
+    "תל אביב",
   ],
   authors: [{ name: "טליה ברוכיאן" }],
   openGraph: {
-    title: "טליה ברוכיאן — במאית, תסריטאית ומפיקה",
+    title: "וידאותרפיה · טליה ברוכיאן — סדנה קבוצתית",
     description:
-      "פורטפוליו קולנועי: סרטים עלילתיים ותיעודיים, סדרות וקליפים.",
+      "תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי וצמיחה. שישה מפגשים בתל אביב, החל מדצמבר.",
     url: siteUrl,
-    siteName: "טליה ברוכיאן",
+    siteName: "טליה ברוכיאן · וידאותרפיה",
     locale: "he_IL",
     type: "website",
   },
@@ -72,7 +73,7 @@ export default function RootLayout({
       <body>
         {/* Skip link for keyboard & screen-reader users */}
         <a
-          href="#works"
+          href="#top"
           className="sr-only focus:not-sr-only focus:absolute focus:right-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:text-paper"
         >
           דילוג לתוכן
