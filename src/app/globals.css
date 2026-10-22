@@ -3,23 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* Warm editorial paper palette (light, minimal) */
-  --color-paper: #f7f5f1;
-  --color-surface: #ffffff;
-  --color-ink: #17140f;
-  --color-muted: #6f6a61;
-  --color-line: #e4e0d8;
-  --color-accent: #b4552f;
+  /* Warm, filmic editorial palette (light) */
+  --color-paper: #f5eee2;
+  --color-surface: #fbf7f0;
+  --color-ink: #211a13;
+  --color-muted: #776b5c;
+  --color-line: #e7ddce;
+  --color-accent: #b14e27;
+  --color-accent-2: #b5894a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-paper: #0f0e0c;
-    --color-surface: #17150f;
-    --color-ink: #f4f1ea;
-    --color-muted: #9c968b;
-    --color-line: #2a2721;
-    --color-accent: #e07a4d;
+    --color-paper: #14110d;
+    --color-surface: #1b1711;
+    --color-ink: #f2ebdd;
+    --color-muted: #a39885;
+    --color-line: #2c261d;
+    --color-accent: #d9703f;
+    --color-accent-2: #c9a05f;
   }
 }
 
@@ -38,7 +40,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Respect reduced-motion preferences */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -67,7 +68,7 @@
 
   /* Small uppercase label used as section eyebrows */
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-widest text-accent;
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent;
   }
 
   /* Animated underline for inline links */
@@ -83,5 +84,16 @@
   .link-underline:hover::after,
   .link-underline:focus-visible::after {
     @apply scale-x-100;
+  }
+
+  /* Subtle film grain for a tactile, cinematic feel */
+  .film-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
   }
 }

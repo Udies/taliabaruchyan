@@ -13,11 +13,13 @@ const config: Config = {
         muted: "var(--color-muted)",
         line: "var(--color-line)",
         accent: "var(--color-accent)",
+        accent2: "var(--color-accent-2)",
         surface: "var(--color-surface)",
       },
       fontFamily: {
         sans: ["var(--font-assistant)", "system-ui", "sans-serif"],
         display: ["var(--font-heebo)", "var(--font-assistant)", "sans-serif"],
+        serif: ["var(--font-frank)", "Georgia", "serif"],
       },
       maxWidth: {
         content: "1200px",

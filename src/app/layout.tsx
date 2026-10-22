@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, Assistant } from "next/font/google";
+import { Heebo, Assistant, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 
 /** Display font — used for the brand mark and headlines. */
@@ -15,6 +15,14 @@ const assistant = Assistant({
   subsets: ["hebrew", "latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-assistant",
+  display: "swap",
+});
+
+/** Editorial serif — used for emotive headlines and the pull-quote. */
+const frank = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-frank",
   display: "swap",
 });
 
@@ -69,7 +77,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${assistant.variable}`}>
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${heebo.variable} ${assistant.variable} ${frank.variable}`}
+    >
       <body>
         {/* Skip link for keyboard & screen-reader users */}
         <a
@@ -78,6 +90,7 @@ export default function RootLayout({
         >
           דילוג לתוכן
         </a>
+        <div className="film-grain" aria-hidden />
         {children}
       </body>
     </html>

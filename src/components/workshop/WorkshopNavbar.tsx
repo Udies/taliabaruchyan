@@ -44,7 +44,7 @@ export default function WorkshopNavbar() {
       >
         {/* Brand */}
         <a href="#top" onClick={close} className="flex flex-col leading-none">
-          <span className="font-display text-lg font-extrabold tracking-tight text-ink">
+          <span className="font-serif text-xl font-bold tracking-tight text-ink">
             {workshop.brand}
           </span>
           <span className="mt-1 text-[11px] font-medium tracking-[0.2em] text-accent">
@@ -112,7 +112,7 @@ export default function WorkshopNavbar() {
               <a
                 href={link.href}
                 onClick={close}
-                className="block border-b border-line/60 py-4 font-display text-2xl font-bold text-ink transition-colors hover:text-accent"
+                className="block border-b border-line/60 py-4 font-serif text-2xl font-bold text-ink transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
