@@ -42,7 +42,7 @@ export default function ProjectGrid({
               עבודות
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted">
-              מבחר פרויקטים מהשנים האחרונות — עלילתי, תיעודי, סדרות וקליפים.
+              מבחר פרויקטים מהשנים האחרונות: עלילתי, תיעודי, סדרות וקליפים.
               כל כרטיס הוא מקום שמור לפרויקט אמיתי.
             </p>
           </div>

@@ -4,9 +4,9 @@ import LeadForm from "@/components/workshop/LeadForm";
 import { workshop } from "@/config/workshop";
 
 export const metadata: Metadata = {
-  title: "וידאותרפיה · טליה ברוכיאן — סדנה קבוצתית",
+  title: "וידאותרפיה · טליה ברוכיאן · סדנה קבוצתית",
   description:
-    "סדנת וידאותרפיה בהנחיית טליה ברוכיאן — תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי וצמיחה. שישה מפגשים בתל אביב, החל מדצמבר.",
+    "סדנת וידאותרפיה בהנחיית טליה ברוכיאן. תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי וצמיחה. שישה מפגשים בתל אביב, החל מדצמבר.",
 };
 
 export default function Home() {
@@ -82,7 +82,7 @@ export default function Home() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/talia.jpg"
-                      alt="טליה ברוכיאן — מנחת וידאותרפיה"
+                      alt="טליה ברוכיאן, מנחת וידאותרפיה"
                       className="absolute inset-0 h-full w-full object-cover object-center"
                       style={{ filter: "sepia(0.14) contrast(1.02) brightness(1.02)" }}
                     />

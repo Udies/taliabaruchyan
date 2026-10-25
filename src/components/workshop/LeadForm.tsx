@@ -79,7 +79,7 @@ export default function LeadForm() {
         });
         succeed();
       } catch {
-        setErrorText("לא הצלחנו לשלוח כרגע — נסו שוב, או דברו איתנו בוואטסאפ.");
+        setErrorText("לא הצלחנו לשלוח כרגע. נסו שוב, או דברו איתנו בוואטסאפ.");
         setStatus("error");
       }
       return;

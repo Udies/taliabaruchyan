@@ -13,7 +13,7 @@ export const showreel = {
   /** Poster image (path under /public) shown before playback. */
   poster: "",
   label: "Showreel",
-  caption: "סרט רזומה — אוסף קטעים נבחרים",
+  caption: "סרט רזומה · אוסף קטעים נבחרים",
 } as const;
 
 export const contact = {

@@ -24,7 +24,7 @@ export default function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             יוצרת קולנועית שעובדת בין העלילתי לתיעודי. אני מחפשת את הרגע הקטן
-            והאמיתי שבו דמות נחשפת — ובונה סביבו עולם שלם של תמונה, קול ורגש.
+            והאמיתי שבו דמות נחשפת, ובונה סביבו עולם שלם של תמונה, קול ורגש.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
