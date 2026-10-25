@@ -100,6 +100,7 @@ export const workshop = {
      * POSTs each submission to the leads Google Sheet (and emails Talia).
      * Until set, the form falls back to opening WhatsApp.
      */
-    leadEndpoint: "",
+    leadEndpoint:
+      "https://script.google.com/macros/s/AKfycbyFqcDS1WPtlONH5t7AJd7LiXy-Akz-CozVwDhZhhlmmC9V30KdCqtqgNuGhLLrCfEK/exec",
   },
 } as const;
