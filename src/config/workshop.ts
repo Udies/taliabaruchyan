@@ -95,5 +95,12 @@ export const workshop = {
     whatsapp: "972506568934", // 050-6568934 in international format
     email: "", // optional fallback
     instagram: "", // optional
+    /**
+     * Google Apps Script Web App URL (ends with /exec). When set, the lead form
+     * POSTs each submission to the leads Google Sheet (and emails Talia).
+     * Until set, the form falls back to opening WhatsApp.
+     */
+    leadEndpoint:
+      "https://script.google.com/macros/s/AKfycbyFqcDS1WPtlONH5t7AJd7LiXy-Akz-CozVwDhZhhlmmC9V30KdCqtqgNuGhLLrCfEK/exec",
   },
 } as const;

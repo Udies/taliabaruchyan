@@ -3,45 +3,76 @@
 import { useState, type FormEvent } from "react";
 import { workshop } from "@/config/workshop";
 
-type Status = "idle" | "error" | "success";
+type Status = "idle" | "sending" | "error" | "success";
+
+const emptyValues = { name: "", phone: "", email: "", message: "", company: "" };
 
 export default function LeadForm() {
   const { form, contact } = workshop;
-  const [values, setValues] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
+  const [values, setValues] = useState(emptyValues);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorText, setErrorText] = useState("");
 
   const update =
     (field: keyof typeof values) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setValues((prev) => ({ ...prev, [field]: e.target.value }));
-      if (status !== "idle") setStatus("idle");
+      if (status === "error" || status === "success") setStatus("idle");
     };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Honeypot: real people leave this empty; bots tend to fill it.
+    if (values.company.trim() !== "") return;
+
     const hasContact =
       values.phone.trim() !== "" ||
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email);
     if (!values.name.trim() || !hasContact) {
+      setErrorText("נא למלא שם וגם טלפון או מייל.");
       setStatus("error");
       return;
     }
 
-    // Compose the lead. When Talia's WhatsApp/email is configured, open it so
-    // the lead reaches her directly; otherwise just confirm on-screen.
-    const lines = [
+    const fields = {
+      name: values.name.trim(),
+      phone: values.phone.trim(),
+      email: values.email.trim(),
+      message: values.message.trim(),
+    };
+
+    // Preferred path: save the lead to the Google Sheet (and email Talia).
+    if (contact.leadEndpoint) {
+      setStatus("sending");
+      try {
+        await fetch(contact.leadEndpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: new URLSearchParams(fields).toString(),
+        });
+        setStatus("success");
+        setValues(emptyValues);
+      } catch {
+        setErrorText("לא הצלחנו לשלוח כרגע — נסו שוב, או דברו איתנו בוואטסאפ.");
+        setStatus("error");
+      }
+      return;
+    }
+
+    // Fallback until the Sheet endpoint is wired: open WhatsApp / email.
+    const body = [
       "פנייה חדשה לסדנת וידאותרפיה",
-      `שם: ${values.name}`,
-      values.phone && `טלפון: ${values.phone}`,
-      values.email && `מייל: ${values.email}`,
-      values.message && `רוצה לדעת: ${values.message}`,
-    ].filter(Boolean);
-    const body = lines.join("\n");
+      `שם: ${fields.name}`,
+      fields.phone && `טלפון: ${fields.phone}`,
+      fields.email && `מייל: ${fields.email}`,
+      fields.message && `רוצה לדעת: ${fields.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     if (contact.whatsapp) {
       window.open(
@@ -54,10 +85,11 @@ export default function LeadForm() {
         "פנייה לסדנת וידאותרפיה",
       )}&body=${encodeURIComponent(body)}`;
     }
-
     setStatus("success");
-    setValues({ name: "", phone: "", email: "", message: "" });
+    setValues(emptyValues);
   };
+
+  const sending = status === "sending";
 
   return (
     <form
@@ -65,6 +97,20 @@ export default function LeadForm() {
       noValidate
       className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8"
     >
+      {/* Honeypot (hidden from people) */}
+      <div aria-hidden className="absolute h-0 w-0 overflow-hidden" style={{ opacity: 0 }}>
+        <label htmlFor="company">אל תמלאו שדה זה</label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={values.company}
+          onChange={update("company")}
+        />
+      </div>
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Field
           id="name"
@@ -117,22 +163,17 @@ export default function LeadForm() {
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-out-expo hover:-translate-y-0.5"
+          disabled={sending}
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-out-expo hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {form.submit}
+          {sending ? "שולח…" : form.submit}
         </button>
         <p
           role="status"
           aria-live="polite"
-          className={`text-sm ${
-            status === "error"
-              ? "text-accent"
-              : status === "success"
-                ? "text-ink"
-                : "text-muted"
-          }`}
+          className={`text-sm ${status === "error" ? "text-accent" : "text-muted"}`}
         >
-          {status === "error" && "נא למלא שם וגם טלפון או מייל."}
+          {status === "error" && errorText}
           {status === "success" && form.success}
         </p>
       </div>
