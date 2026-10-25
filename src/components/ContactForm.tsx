@@ -155,7 +155,7 @@ export default function ContactForm() {
                   {status === "error" &&
                     "נא למלא שם, אימייל תקין והודעה."}
                   {status === "success" &&
-                    "תודה! ההודעה נשלחה — אחזור אליכם בהקדם."}
+                    "תודה! ההודעה נשלחה. אחזור אליכם בהקדם."}
                 </p>
               </div>
             </form>

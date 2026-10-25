@@ -77,7 +77,7 @@ export default function Navbar() {
           <button
             type="button"
             className="rounded-full border border-line px-3 py-1 text-xs font-semibold tracking-wide text-muted transition-colors hover:border-ink/30 hover:text-ink"
-            aria-label="החלפת שפה — עברית פעילה"
+            aria-label="החלפת שפה, עברית פעילה"
             title="English (בקרוב)"
           >
             <span className="text-ink">עב</span>

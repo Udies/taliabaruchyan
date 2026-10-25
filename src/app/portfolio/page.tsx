@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "פורטפוליו קולנועי",
   description:
-    "פורטפוליו של טליה ברוכיאן — במאית, תסריטאית ומפיקה. סרטים עלילתיים ותיעודיים, סדרות וקליפים.",
+    "פורטפוליו של טליה ברוכיאן, במאית, תסריטאית ומפיקה. סרטים עלילתיים ותיעודיים, סדרות וקליפים.",
 };
 
 export default function PortfolioPage() {
