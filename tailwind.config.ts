@@ -19,7 +19,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-assistant)", "system-ui", "sans-serif"],
         display: ["var(--font-heebo)", "var(--font-assistant)", "sans-serif"],
-        serif: ["var(--font-frank)", "Georgia", "serif"],
+        serif: ["var(--font-david)", "Georgia", "serif"],
       },
       maxWidth: {
         content: "1200px",

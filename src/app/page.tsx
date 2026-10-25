@@ -36,7 +36,7 @@ export default function Home() {
                   <span aria-hidden className="h-px w-6 bg-accent" />
                   סדנה קבוצתית · תל אביב
                 </p>
-                <h1 className="mt-6 font-serif text-6xl font-black leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+                <h1 className="mt-6 font-serif text-6xl font-bold leading-[0.98] tracking-tight text-ink sm:text-7xl lg:text-8xl">
                   {w.hero.title}
                 </h1>
                 <p className="mt-5 max-w-xl font-serif text-2xl font-medium leading-snug text-ink/80 sm:text-3xl">
