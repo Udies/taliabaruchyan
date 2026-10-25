@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, Assistant, Frank_Ruhl_Libre } from "next/font/google";
+import { Heebo, Assistant, David_Libre } from "next/font/google";
 import "./globals.css";
 
 /** Display font — used for the brand mark and headlines. */
@@ -18,11 +18,11 @@ const assistant = Assistant({
   display: "swap",
 });
 
-/** Editorial serif — used for emotive headlines and the pull-quote. */
-const frank = Frank_Ruhl_Libre({
+/** Humanist Hebrew serif: warm, personal voice for headlines and the pull-quote. */
+const david = David_Libre({
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-frank",
+  weight: ["400", "500", "700"],
+  variable: "--font-david",
   display: "swap",
 });
 
@@ -80,7 +80,7 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={`${heebo.variable} ${assistant.variable} ${frank.variable}`}
+      className={`${heebo.variable} ${assistant.variable} ${david.variable}`}
     >
       <body>
         {/* Skip link for keyboard & screen-reader users */}
