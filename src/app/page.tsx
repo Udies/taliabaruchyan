@@ -6,7 +6,7 @@ import { workshop } from "@/config/workshop";
 export const metadata: Metadata = {
   title: "וידאותרפיה · טליה ברוכיאן · סדנה קבוצתית",
   description:
-    "סדנת וידאותרפיה בהנחיית טליה ברוכיאן. תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי וצמיחה. שישה מפגשים בתל אביב, החל מדצמבר.",
+    "סדנת וידאותרפיה בהנחיית טליה ברוכיאן. תהליך יצירה רגשי בווידאו ומרחב להתבוננות, ביטוי אישי וצמיחה. סדנה קבוצתית בת שישה מפגשים בתל אביב.",
 };
 
 export default function Home() {
@@ -61,9 +61,9 @@ export default function Home() {
                 <ul className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-muted">
                   <li>שישה מפגשים</li>
                   <li aria-hidden className="h-1 w-1 rounded-full bg-accent2" />
-                  <li>תל אביב · ימי רביעי בערב</li>
+                  <li>תל אביב</li>
                   <li aria-hidden className="h-1 w-1 rounded-full bg-accent2" />
-                  <li>החל מדצמבר</li>
+                  <li>מספר מקומות מוגבל</li>
                 </ul>
               </div>
 
@@ -234,22 +234,19 @@ export default function Home() {
                     "radial-gradient(40% 70% at 100% 0%, rgba(217,112,63,0.22), transparent 70%)",
                 }}
               />
-              <dl className="relative grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2">
-                {w.details.items.map((item) => (
-                  <div key={item.label} className="border-b border-paper/15 pb-5">
-                    <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                      {item.label}
-                    </dt>
-                    <dd className="mt-2 font-serif text-lg font-semibold text-paper">
-                      {item.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="relative mt-8 text-center">
+              <div className="relative text-center">
+                <span className="inline-flex items-center gap-2 rounded-full border border-paper/20 px-4 py-1.5 text-xs font-semibold tracking-[0.15em] text-accent">
+                  {w.details.eyebrow}
+                </span>
+                <p className="mx-auto mt-6 max-w-xl font-serif text-xl font-medium leading-relaxed text-paper sm:text-2xl">
+                  {w.details.body}
+                </p>
+                <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-paper/70 sm:text-base">
+                  {w.details.note}
+                </p>
                 <a
                   href="#lead"
-                  className="inline-flex rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-out-expo hover:-translate-y-0.5"
+                  className="mt-8 inline-flex rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-out-expo hover:-translate-y-0.5"
                 >
                   {w.details.cta}
                 </a>
